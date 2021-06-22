@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %} - BacaIn</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <link
+            rel="stylesheet"
+            href="{{url_for('static', filename='assets/css/style.css')}}"
+        />
+        <link
+            rel="shortcut icon"
+            href="{{url_for('static', filename='favicon.ico')}}"
+            type="image/x-icon"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="{{url_for('static', filename='assets/css/bootstrap.min.css')}}"
+        />
+    </head>
+    <body>
+        <ul class="nav nav-tabs nav-stacked fixed-top bg-light">
+            <li class="nav-item">
+                <a
+                    href="{{url_for('homepage')}}"
+                    class="
+                        nav-link
+                        {%
+                        if
+                        request.endpoint
+                        ==
+                        'homepage'
+                        %}active{%
+                        endif%}
+                    "
+                    >Home</a
+                >
+            </li>
+            <li class="nav-item">
+                <a
+                    href="{{url_for('howtouse')}}"
+                    class="
+                        nav-link
+                        {%
+                        if
+                        request.endpoint
+                        ==
+                        'howtouse'
+                        %}active{%
+                        endif%}
+                    "
+                    >Cara Penggunaan</a
+                >
+            </li>
+            <li class="nav-item">
+                <a
+                    href="{{url_for('bacain')}}"
+                    class="
+                        nav-link
+                        {%
+                        if
+                        request.endpoint
+                        ==
+                        'bacain'
+                        %}active{%
+                        endif%}
+                    "
+                    >Pakai BacaIn</a
+                >
+            </li>
+            <li class="nav-item">
+                <a
+                    href="{{url_for('kelompok')}}"
+                    class="
+                        nav-link
+                        {%
+                        if
+                        request.endpoint
+                        ==
+                        'kelompok'
+                        %}active{%
+                        endif%}
+                    "
+                    >Anggota Kelompok</a
+                >
+            </li>
+        </ul>
+        <div class="main">{% block content %}{% endblock %}</div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{{url_for('static', filename='assets/js/jquery.min.js')}}"></script>
+        <script src="{{url_for('static', filename='assets/js/bootstrap.min.js')}}"></script>
+        {% if extracted_text%}
+        <script src="{{url_for('static', filename='assets/js/tts.js')}}"></script>
+        {% endif %}
+        <script
+            src="https://kit.fontawesome.com/107a5ffc4d.js"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

@@ -1,0 +1,145 @@
+{% extends 'base.html' %} {% block title %} Home{% endblock %} {% block content
+%}
+<div class="container">
+    <h1 class="text-center">BacaIn</h1>
+    <br />
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne"
+                            aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseOne"
+                        >
+                            Apa itu BacaIn?
+                        </button>
+                    </h2>
+                    <div
+                        id="panelsStayOpen-collapseOne"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingOne"
+                    >
+                        <div class="accordion-body">
+                            <strong>BacaIn</strong> merupakan sebuah aplikasi
+                            yang dapat melakukan <strong>OCR</strong> (Optical
+                            Character Recognition) dan
+                            <strong>TTS</strong> (Text-To-Speech). Aplikasi ini
+                            kami buat dengan tujuan untuk memenuhi tugas akhir
+                            mata kuliah <i>Artificial Intelligence</i>. Dalam
+                            aplikasi ini, nantinya pengguna akan dapat
+                            memasukkan gambar berisi tulisan yang kemudian
+                            tulisan yang berada pada gambar tersebut akan di
+                            ekstrak dan pengguna dapat memilih agar tulisan
+                            tersebut di<strong>BacaIn</strong>.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseTwo"
+                        >
+                            Kenapa kami memilih BacaIn?
+                        </button>
+                    </h2>
+                    <div
+                        id="panelsStayOpen-collapseTwo"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingTwo"
+                    >
+                        <div class="accordion-body">
+                            Dikutip dari
+                            <a
+                                href="https://www.kominfo.go.id/content/detail/10862/teknologi-masyarakat-indonesia-malas-baca-tapi-cerewet-di-medsos/0/sorotan_media"
+                                >artikel pada laman Kominfo</a
+                            >, berdasarkan survei yang dilakukan oleh
+                            Connecticut State University, Indonesia menduduki
+                            peringkat ke-60 dari 61 negara soal minat membaca.
+                            Bahkan menurut data UNESCO, minat baca masyarakat
+                            Indonesia hanya berada pada angka
+                            <strong>0,0001%</strong>. Artinya dari 1000 orang
+                            Indonesia, cuma 1 orang yang rajin membaca!.<br />
+                            Padahal, menurut data dari
+                            <a
+                                href="https://www.statista.com/statistics/266729/smartphone-users-in-indonesia/"
+                                >Statista</a
+                            >, pada tahun 2020 jumlah pengguna aktif
+                            <i>smartphone</i> di Indonesia mencapai lebih dari
+                            <strong>191.6</strong> juta orang. Sementara itu,
+                            dihimpun dari
+                            <a
+                                href="https://wearesocial.com/blog/2021/01/digital-2021-the-latest-insights-into-the-state-of-digital"
+                                >We Are Social</a
+                            >
+                            sekitar <strong>73.7%</strong> penduduk Indonesia
+                            memiliki akses ke internet dan mereka menghabiskan
+                            <strong>lebih dari 8 jam</strong>
+                            setiap harinya di internet.
+                            <br />
+                            Rendahnya minat baca masyarakat Indonesia tentunya
+                            menjadi hal yang cukup mengkhawatirkan terlebih di
+                            era digital saat ini dimana telah banyak terdapat
+                            penyedia akses buku bacaan daring seperti
+                            <strong>
+                                <a href="https://read.amazon.com/">Kindle</a>,
+                                <a href="https://ebooks.gramedia.com/"
+                                    >Gramedia Digital</a
+                                >,
+                                <a href="https://books.google.co.id/"
+                                    ><i>Google Books</i></a
+                                ></strong
+                            >, dan lain sebagainya.
+                            <br />
+                            Berdasarkan latar belakang tersebut, maka kelompok
+                            kami memutuskan untuk membuat
+                            <strong>BacaIn</strong> dengan harapan dapat
+                            membantu <i>meningkatkan</i> minat baca di
+                            Indonesia. Dengan <strong>BacaIn</strong> pengguna
+                            hanya perlu mengunggah gambar yang berisi teks
+                            kemudian akan di <strong>BacaIn</strong>.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2
+                        class="accordion-header"
+                        id="panelsStayOpen-headingThree"
+                    >
+                        <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseThree"
+                            aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseThree"
+                        >
+                            Di balik BacaIn
+                        </button>
+                    </h2>
+                    <div
+                        id="panelsStayOpen-collapseThree"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingThree"
+                    >
+                        <div class="accordion-body">
+                            <strong>BacaIn</strong> kami buat dengan menggunakan
+                            bahasa <code>Python</code> dan
+                            <code>JavaScript</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

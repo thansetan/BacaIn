@@ -1,0 +1,56 @@
+{%extends 'base.html' %} {% block title %} Panduan Penggunaan {% endblock %}
+{%block content %}
+<div class="text-center">
+    <h1>Cara Penggunaan:</h1>
+</div>
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <ol>
+            <li>
+                Buka <a href="{{url_for('bacain')}}" target="_blank">Bacain</a>.
+                <br />
+                <img
+                    src="{{url_for('static', filename='assets/img/langkah/1.png')}}"
+                    alt="Langkah 1"
+                    class="img-fluid"
+                />
+            </li>
+            <li>
+                Pilih gambar yang akan diekstrak teksnya dengan menekan tombol
+                "Choose File".
+                <br />
+                <img
+                    src="{{url_for('static', filename='assets/img/langkah/2.png')}}"
+                    alt="Langkah 2"
+                    class="img-fluid"
+                />
+            </li>
+            <li>
+                Setelah gambar dipilih, tekan tombol "upload" untuk mengunggah
+                gambar.
+                <br />
+                <img
+                    src="{{url_for('static', filename='assets/img/langkah/3.png')}}"
+                    alt="Langkah 2"
+                    class="img-fluid"
+                />
+            </li>
+            <li>
+                Selanjutnya hasil dari teks yang telah diekstrak akan
+                ditampilkan pada kolom "Hasil Teks".
+                <br />
+                <img
+                    src="{{url_for('static', filename='assets/img/langkah/4.png')}}"
+                    alt="Langkah 2"
+                    class="img-fluid"
+                />
+            </li>
+            <li>
+                Untuk mendengarkan teks yang telah diekstrak, dapat dilakukan
+                dengan menekan tombol "BacaIn" pada kolom aksi (terdapat delay
+                beberapa detik hingga suara muncul, mohon bersabar).
+            </li>
+        </ol>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% block title %} Kelompok 1 (kayanya) {% endblock %}
+{% block content %}
+<section class="our-webcoderskull padding-lg">
+    <div class="container">
+        <div class="row heading heading-icon">
+            <h2>Anggota Kelompok: </h2>
+        </div>
+        <ul class="row">
+            <li class="col-12 col-md-6 col-lg-3">
+                <div class="cnt-block equal-hight" style="height: 349px">
+                    <figure>
+                        <img
+                            src="{{url_for('static', filename='assets/img/anggota/yunus.jpg')}}"
+                            class="img-responsive"
+                            alt=""
+                        />
+                    </figure>
+                    <h3>
+                        Ahmad Yunus Mujadidi
+                    </h3>
+                    <h2>4611418045</h2>
+                </div>
+            </li>
+            <li class="col-12 col-md-6 col-lg-3">
+                <div class="cnt-block equal-hight" style="height: 349px">
+                    <figure>
+                        <img
+                            src="{{url_for('static', filename='assets/img/anggota/aku.png')}}"
+                            class="img-responsive"
+                            alt=""
+                        />
+                    </figure>
+                    <h3 style='padding-bottom:28px'>Fathan Arsyadani</h3>
+                    <h2>4611418047</h2>
+                </div>
+            </li>
+            <li class="col-12 col-md-6 col-lg-3">
+                <div class="cnt-block equal-hight" style="height: 349px">
+                    <figure>
+                        <img
+                            src="{{url_for('static', filename='assets/img/anggota/fadil.jpg')}}"
+                            class="img-responsive"
+                            alt=""
+                        />
+                    </figure>
+                    <h3>M. Fadil Mardiansyah</h3>
+                    <h2>4611418061</h2>
+                </div>
+            </li>
+            <li class="col-12 col-md-6 col-lg-3">
+                <div class="cnt-block equal-hight" style="height: 349px">
+                    <figure>
+                        <img
+                            src="{{url_for('static', filename='assets/img/anggota/yoga.jpg')}}"
+                            class="img-responsive"
+                            alt=""
+                        />
+                    </figure>
+                    <h3>Al Rifky Prayoga Putra</a></h3>
+                    <h2>4611418070</h2>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+{% endblock %}
