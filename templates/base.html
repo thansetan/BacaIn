@@ -99,8 +99,17 @@
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="{{url_for('static', filename='assets/js/jquery.min.js')}}"></script>
         <script src="{{url_for('static', filename='assets/js/bootstrap.min.js')}}"></script>
-        {% if extracted_text%}
+        {% if hasil %}
         <script src="{{url_for('static', filename='assets/js/tts.js')}}"></script>
+        <script>
+            {% if bahasa == 'en' %}
+                bahasa = '{{bahasa}}'
+            {% elif bahasa == 'id' %}
+                bahasa = '{{bahasa}}'
+            {% else %}
+                bahasa = 'en'
+            {% endif %}
+        </script>
         {% endif %}
         <script
             src="https://kit.fontawesome.com/107a5ffc4d.js"

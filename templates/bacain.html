@@ -8,12 +8,32 @@ content %}
     </div>
     {% endif %}
     <form enctype="multipart/form-data" method="post">
-        <input type="file" name="file" accept="image/*" />
-        <input type="submit" value="Upload" />
+        <div class="row justify-content-center">
+            <div class="col-md-4"></div>
+            <div class="col-md-3">
+                <input
+                    type="file"
+                    name="file"
+                    class="form-control"
+                    accept="image/*"
+                />
+            </div>
+            <div class="col-md-1">
+                <input
+                    type="submit"
+                    value="Upload"
+                    class="btn"
+                    style="background-color: #e9ecef"
+                />
+            </div>
+            <div class="col-md-4"></div>
+        </div>
     </form>
+    <br />
     <h1>Hasil:</h1>
     <div class="row justify-content-center">
         <div class="col-auto">
+            {% if bahasa %}
             <table
                 class="
                     table
@@ -34,16 +54,15 @@ content %}
                     <tr>
                         <td scope="row">
                             <img
-                                src="{% if img_src %} {{ img_src }} {% else %}404NotFound{% endif %}"
+                                src="{{ img_src }}"
                                 alt="Gambar"
                                 style="max-width: 450px; height: auto"
                                 srcset=""
                             />
                         </td>
-                        {% if extracted_text %}
                         <td>
                             <p>
-                                <b id="hasil_ocr">{{ extracted_text }}</b>
+                                <b id="hasil_ocr">{{ hasil }}</b>
                             </p>
                         </td>
                         <td>
@@ -51,40 +70,24 @@ content %}
                                 <a
                                     name=""
                                     id="tts"
-                                    class="btn btn-primary"
+                                    class="btn btn-primary {{ disabled }}"
                                     href="#"
                                     role="button"
                                     ><i class="fas fa-volume-up"></i> BacaIn</a
                                 >
                             </form>
                         </td>
-                        {% else %}
-                        <td>
-                            <p>
-                                <b>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Porro, inventore?</b
-                                >
-                            </p>
-                        </td>
-                        <td>
-                            <form>
-                                <a
-                                    name=""
-                                    id="tts"
-                                    class="btn btn-primary disabled"
-                                    href="#"
-                                    role="button"
-                                    aria-disabled="true"
-                                    ><i class="fas fa-volume-up"></i> BacaIn</a
-                                >
-                            </form>
-                        </td>
-                        {% endif %}
                     </tr>
                 </tbody>
             </table>
+            {% else %}
+            <h1>
+                Unggah gambar terlebih dahulu, kemudian hasilnya akan muncul di
+                sini.
+            </h1>
+            {% endif %}
         </div>
     </div>
 </div>
+<div id="alert"></div>
 {% endblock %}

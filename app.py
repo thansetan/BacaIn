@@ -1,13 +1,15 @@
-import os
+from base64 import b64encode
+from io import BytesIO
+
 from flask import Flask, render_template, request
-from ocr import *
-from werkzeug.utils import secure_filename
-UPLOAD_FOLDER = 'static/uploads/'
+from langdetect import detect
+from PIL import Image
+
+import ocr
 
 # terima file tertentu
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+ALLOWED_EXTENSIONS = ['png', 'jpg', 'jpeg']
 app = Flask(__name__)
-
 
 #cek ekstensi file
 def allowed_file(filename):
@@ -29,27 +31,42 @@ def bacain():
         file = request.files['file']
         if file.filename == '': #kalo gaada file 
             return render_template('bacain.html', msg='Gagal, belum memilih File', clr='red')
-
         if file and allowed_file(file.filename):
-            extracted_text = ocr(file)
-            file.seek(0)
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(UPLOAD_FOLDER, filename))
+            extracted_text = ocr.ocr(file) #Terapin OCR
+            try:
+                bahasa = detect(extracted_text) #detect bahasa
+                msg = 'Berhasil'
+                clr = 'blue'
+                disabled = ''
+            except:
+                bahasa = 'en'
+                msg = 'Gagal mendeteksi teks'
+                clr = 'gold'
+                disabled = 'disabled'
+            sebaris = " ".join(extracted_text.splitlines()) #jadiin sebaris biar bacanya lancar
+            hasil = sebaris.strip() #ilangin simbol g penting yg diakhir
+            
+            #Tampilin gambar tanpa perlu save
+            img = Image.open(file)
+            if img.mode in ("RGBA", "P"):
+                img = img.convert("RGB")
+            data = BytesIO()
+            img.save(data, "JPEG")
+            encoded_img = b64encode(data.getvalue())
+            decoded_img = encoded_img.decode('utf-8')
+            img_src = f"data:image/jpeg;base64,{decoded_img}"
+
             return render_template('bacain.html',
-            msg='Berhasil',
-            extracted_text=extracted_text,
-            img_src=UPLOAD_FOLDER + file.filename, clr='blue')
-            return extracted_text
+            msg=msg,
+            hasil=hasil,
+            img_src=img_src, 
+            clr=clr, 
+            bahasa=bahasa,
+            disabled=disabled)
     elif request.method == 'GET':
         return render_template('bacain.html')
 @app.route('/howtouse')
 def howtouse():
     return render_template('howtouse.html')
-
-# @app.route('/bacain')
-# def bacain():
-#     bacain(extracted_text)
-#     return ('nothing')
-
 if __name__ == '__main__':
     app.run()
